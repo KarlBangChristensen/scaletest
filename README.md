@@ -1,2 +1,2 @@
 # scaletest
-SAS macro to compute simple descriptive statistics for scale validation
+SAS macro and R function to compute simple descriptive statistics for scale validation
