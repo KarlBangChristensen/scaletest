@@ -11,6 +11,12 @@ Call the SAS macro using
 
 here you can specify
 
+- `data`
+- `items`
+- `ncat`
+- `name` the name of the output data set (default value: scaletest)
+- `type` the type of correlation (values `SPEARMAN`, `PEARSON`, ..)
+
 the output looks like this:
 
 | Item  | Mean | SD   | range of inter | item corr. | floor | ceiling | Item  | Corr. with total |
