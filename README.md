@@ -48,7 +48,7 @@ Use
 source("https://raw.githubusercontent.com/KarlBangChristensen/scaletest/refs/heads/master/scaletest.R")
 SPADI <- read.csv("https://erda.ku.dk/public/archives/bacc560d26b01f7a65e77a9712a92e86/SPADI.csv")
 items <- SPADI[, c("P1", "P2", "P3", "P4", "P5")]
-table scaletest(data = items, min_item_score = 0, max_item_score = 5)  
+table <- scaletest(data = items, min_item_score = 0, max_item_score = 5)  
 ```
 
 this generates the output `table` that looks like this: 
