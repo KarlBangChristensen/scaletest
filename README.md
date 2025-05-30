@@ -48,8 +48,10 @@ Use
 source("https://raw.githubusercontent.com/KarlBangChristensen/scaletest/refs/heads/master/scaletest.R")
 SPADI <- read.csv("https://erda.ku.dk/public/archives/bacc560d26b01f7a65e77a9712a92e86/SPADI.csv")
 items <- SPADI[, c("P1", "P2", "P3", "P4", "P5")]
-scaletest(data = items, min_item_score = 0, max_item_score = 5)  
+table scaletest(data = items, min_item_score = 0, max_item_score = 5)  
 ```
+
+this generates the output `table` that looks like this: 
 
 |    | mean     | sd       | floor      | ceiling   | min       | mac       | item_score_corr | raw_corr   |
 |----|----------|----------|------------|-----------|-----------|-----------|-----------------|------------|
@@ -59,3 +61,4 @@ scaletest(data = items, min_item_score = 0, max_item_score = 5)
 | P4 | 2.535088 | 1.551920 | 13.5964912 | 8.771930  | 0.4825197 | 0.7680526 | 0.8593796       | 0.7520765  |
 | P5 | 2.500000 | 1.515109 | 13.7168142 | 6.637168  | 0.4958951 | 0.5898980 | 0.7925418       | 0.6513641  |
 
+Note that (i) `floor` and `ceiling` are reported as percentages, (ii) for each item the correlations with the four other items range between `min` and `mac`, (iii) `raw_corr` is the so-called corrected item-total correlation (correlation between an item and the sum of all other items in the scale).
