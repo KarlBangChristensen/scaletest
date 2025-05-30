@@ -3,6 +3,8 @@ SAS macro and R function to compute simple descriptive statistics for scale vali
 
 The current implementation works for item sets where all items are scored 0,1,..,MAX (same maximum score for all items in the set). For items where, e.g., only 0,1,2, and 4 have been observed the ceiling will not be correct.
 
+## SAS macro
+
 Call the SAS macro using
 
 ```
@@ -37,3 +39,23 @@ so for, say, `item2` the Spearman rank correlations with the five other items ra
 | 2     | 18        | 9.23    |
 | 3     | 36        | 18.46   |
 | 4     | 134       | 68.72   |
+
+## R function
+
+Use
+
+```
+source("https://raw.githubusercontent.com/KarlBangChristensen/scaletest/refs/heads/master/scaletest.R")
+SPADI <- read.csv("https://erda.ku.dk/public/archives/bacc560d26b01f7a65e77a9712a92e86/SPADI.csv")
+items <- SPADI[, c("P1", "P2", "P3", "P4", "P5")]
+scaletest(data = items, min_item_score = 0, max_item_score = 5)  
+```
+
+|    | mean     | sd       | floor      | ceiling   | min       | mac       | item_score_corr | raw_corr   |
+|----|----------|----------|------------|-----------|-----------|-----------|-----------------|------------|
+| P1 | 3.596491 | 1.072026 | 0.4385965  | 19.298246 | 0.4825197 | 0.5584445 | 0.7134621       | 0.5980698  |
+| P2 | 3.137168 | 1.399600 | 4.8672566  | 16.371681 | 0.4958951 | 0.5537464 | 0.7674607       | 0.6282480  |
+| P3 | 3.133333 | 1.423652 | 7.5555556  | 14.666667 | 0.5434118 | 0.7680526 | 0.8520359       | 0.7530783  |
+| P4 | 2.535088 | 1.551920 | 13.5964912 | 8.771930  | 0.4825197 | 0.7680526 | 0.8593796       | 0.7520765  |
+| P5 | 2.500000 | 1.515109 | 13.7168142 | 6.637168  | 0.4958951 | 0.5898980 | 0.7925418       | 0.6513641  |
+
